@@ -2,6 +2,21 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPGTZN90XL"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-VPGTZN90XL');
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+  var h=a.getAttribute('href')||'',sec=(a.closest('section,header,footer')||{}).id||(a.closest('header')?'menu':a.closest('footer')?'rodape':'pagina');
+  var ev=null,p={secao:sec,link:h};
+  if(h.indexOf('wa.me')>-1){ev='clique_whatsapp';}
+  else if(/\.pdf($|\?)/i.test(h)){ev='abriu_portfolio';}
+  else if(/instagram|tiktok|linkedin|youtube|spotify|lattes/i.test(h)){ev='clique_rede_social';p.rede=(h.match(/instagram|tiktok|linkedin|youtube|spotify|lattes/i)||[''])[0].toLowerCase();}
+  if(ev)gtag('event',ev,p);
+},true);
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Lucas Rick</title>
